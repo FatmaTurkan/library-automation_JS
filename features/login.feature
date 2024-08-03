@@ -1,4 +1,4 @@
-@lib-01
+@login
 Feature: Login to the application
   As a user, I want to login so that I can access the app's main features.
 
@@ -11,20 +11,54 @@ Feature: Login to the application
     Given user is already on the login page
 
   Scenario Outline: Verify users can login with valid credentials
-    When user enters valid username '<user-type>'
-    And user enters valid password '<user-type>'
-    And user clicks the login button
+    When user enters valid username '<user-type>' in the Email address field
+    And user enters valid password '<user-type>' in the Password field
+    And user clicks the Sign in button
     Then user login succussfully to the homepage
     Examples:
       | user-type |
       | admin     |
-      | studen    |
+      | student    |
 
 
 # TODO: Verify users can not login with invalid credentials
+Scenario Outline: Verify users cannot login with invalid email address
+    When user enters invalid email address '<invalid-email>' in the Email address field
+    And user enters valid password '<user-type>' in the Password field
+    And user clicks the Sign in button
+    Then user sees a "Sorry, Wrong Email or Password" error pop-up message
+    Examples:
+      | invalid-email | user-type |
 
+Scenario Outline: Verify user cannot login with invalid password
+    When user enters valid email address '<user-type>' in the Email address field
+    And user enters invalid password '<invalid-password>' in the Password field
+    And user clicks the Sign in button
+    Then user sees a "Sorry, Wrong Email or Password" error pop-up message
+
+    Examples:
+      | user-type | invalid-password |
+
+Scenario Outline: Verify users cannot login with invalid email and password
+    When user enters invalid email address '<invalid-email>' in the Email address field
+    And user enters invalid password '<invalid-password>' in the Password field
+    And user clicks the Sign in button
+    Then user sees a "Sorry, Wrong Email or Password" error pop-up message
+    Examples:
+      | invalid-email | invalid-password |
 
 # TODO: Verify users are not allowed to login without any credentials
+Scenario Outline: Verify users are not allowed to login without any credentials
+    When user clicks the Sign in button without entering any credentials
+    Then user sees a "This field is required." error pop-up message
+
+Scenario Outline: Verify users are not allowed to login without entring a valid password
+    When user enters a valid email address '<user-type>' in the Email address field
+    And user clicks the Sign in button without entering a valid password
+    Then user sees a "This field is required." error pop-up message  ???? 
+      (OR  "Error: Please enter a valid password" error pop-up message )
+    Examples:
+     
 
 
     #? Should there be more scenarios for this user story? Feel free to add more scenarios.

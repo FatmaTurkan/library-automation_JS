@@ -1,4 +1,3 @@
-@lib-06
 Feature: Borrowing books
 
     As a student, I should be able to borrow books on the "Books" Page.

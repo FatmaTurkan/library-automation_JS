@@ -1,4 +1,3 @@
-@lib-04
 Feature: Return Books Functionality
 
     As a student, I should be able to return the borrowed books on the "Borrowing Books" page.
