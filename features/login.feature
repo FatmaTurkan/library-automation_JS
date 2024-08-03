@@ -1,4 +1,4 @@
-@login
+@lib-01
 Feature: Login to the application
   As a user, I want to login so that I can access the app's main features.
 
@@ -18,11 +18,11 @@ Feature: Login to the application
     Examples:
       | user-type |
       | admin     |
-      | student    |
+      | student   |
 
 
-# TODO: Verify users can not login with invalid credentials
-Scenario Outline: Verify users cannot login with invalid email address
+  # TODO: Verify users can not login with invalid credentials
+  Scenario Outline: Verify users cannot login with invalid email address
     When user enters invalid email address '<invalid-email>' in the Email address field
     And user enters valid password '<user-type>' in the Password field
     And user clicks the Sign in button
@@ -30,7 +30,7 @@ Scenario Outline: Verify users cannot login with invalid email address
     Examples:
       | invalid-email | user-type |
 
-Scenario Outline: Verify user cannot login with invalid password
+  Scenario Outline: Verify user cannot login with invalid password
     When user enters valid email address '<user-type>' in the Email address field
     And user enters invalid password '<invalid-password>' in the Password field
     And user clicks the Sign in button
@@ -39,28 +39,30 @@ Scenario Outline: Verify user cannot login with invalid password
     Examples:
       | user-type | invalid-password |
 
-Scenario Outline: Verify users cannot login with invalid email and password
+  Scenario Outline: Verify users cannot login with invalid email and password
     When user enters invalid email address '<invalid-email>' in the Email address field
     And user enters invalid password '<invalid-password>' in the Password field
     And user clicks the Sign in button
     Then user sees a "Sorry, Wrong Email or Password" error pop-up message
     Examples:
-      | invalid-email | invalid-password |
+      | invalid-email   | invalid-password |
+      | library@student | password         |
+      | Library@cydeo   | libraryPassword  |
 
-# TODO: Verify users are not allowed to login without any credentials
-Scenario Outline: Verify users are not allowed to login without any credentials
+  # TODO: Verify users are not allowed to login without any credentials
+  Scenario Outline: Verify users are not allowed to login without any credentials
     When user clicks the Sign in button without entering any credentials
     Then user sees a "This field is required." error pop-up message
 
-Scenario Outline: Verify users are not allowed to login without entring a valid password
+  Scenario Outline: Verify users are not allowed to login without entring a valid password
     When user enters a valid email address '<user-type>' in the Email address field
     And user clicks the Sign in button without entering a valid password
-    Then user sees a "This field is required." error pop-up message  ???? 
-      (OR  "Error: Please enter a valid password" error pop-up message )
+    Then user sees a "This field is required." error pop-up message  ????
+    (OR  "Error: Please enter a valid password" error pop-up message )
     Examples:
-     
 
 
-    #? Should there be more scenarios for this user story? Feel free to add more scenarios.
+
+#? Should there be more scenarios for this user story? Feel free to add more scenarios.
 
 

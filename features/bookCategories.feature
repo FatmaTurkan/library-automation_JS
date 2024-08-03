@@ -1,3 +1,4 @@
+@lib-03
 Feature: Book Categories
 
     As a user, I want to see 21 book categories, so I can filter my favorite books.

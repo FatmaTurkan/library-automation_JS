@@ -1,3 +1,4 @@
+@lib-08
 Feature: Total Amount of Users, Books, and Borrowed Books
 
     As an admin, I want to see the total amount of users, books, and borrowed books on the "Dashboard" page. 

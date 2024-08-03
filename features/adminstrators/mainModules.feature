@@ -1,3 +1,4 @@
+@lib-09
 Feature: Main Modules of the Application
 
     As an admin, I want to access the main modules of the app.

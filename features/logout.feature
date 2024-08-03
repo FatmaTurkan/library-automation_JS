@@ -1,3 +1,4 @@
+@lib-02
 Feature: Logout from the application
 
     As a user, I should be able to logout from the app.

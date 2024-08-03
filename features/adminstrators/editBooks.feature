@@ -1,3 +1,4 @@
+@lib-10
 Feature: Edit Books Functionality
 
     As an admin, I should be able to edit books on the "Books" page.
