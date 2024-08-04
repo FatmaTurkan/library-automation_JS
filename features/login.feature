@@ -54,7 +54,7 @@ Feature: Login to the application
   # TODO: Verify users are not allowed to login without any credentials
   @lib-01-05
   Scenario Outline: Verify users are not allowed to login without any credentials
-    When user clicks the login button without entering any credentials
+    When user clicks the login button
     Then user sees a "This field is required." error pop-up message
 
   @lib-01-06

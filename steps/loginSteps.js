@@ -52,12 +52,9 @@ When('user enters invalid password {string} in the Password field', async functi
   await PageManager.loginPage.enterPassword(string);
 });
 
-When('user clicks the Sign in button', async function () {
-  // Write code here that turns the phrase above into concrete actions
-  return 'pending';
-});
-
 Then('user sees a {string} error pop-up message', async function (string) {
-  // Write code here that turns the phrase above into concrete actions
-  return 'pending';
+  await expect(PageManager.loginPage.loginErrorMessage).toHaveText(string);
+  //await BrowserUtility.verifyMessages(string, PageManager.loginPage.loginErrorMessage.innerText());
+  //this verification above based on a custom function but there is no need for it, 
+  //   as PW has built in expect methods
 });
