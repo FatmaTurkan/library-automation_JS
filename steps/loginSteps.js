@@ -43,3 +43,21 @@ Then("user login succussfully to the homepage", async function () {
   
   // await BrowserUtility.sleep(2);
 });
+
+When('user enters invalid email address {string} in the Email address field', async function (string) {
+  await PageManager.loginPage.enterUsername(string);
+});
+
+When('user enters invalid password {string} in the Password field', async function (string) {
+  await PageManager.loginPage.enterPassword(string);
+});
+
+When('user clicks the Sign in button', async function () {
+  // Write code here that turns the phrase above into concrete actions
+  return 'pending';
+});
+
+Then('user sees a {string} error pop-up message', async function (string) {
+  // Write code here that turns the phrase above into concrete actions
+  return 'pending';
+});
