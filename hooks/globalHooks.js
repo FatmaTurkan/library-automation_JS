@@ -3,13 +3,13 @@ import { chromium, firefox, webkit } from "@playwright/test";
 import {PageManager} from "../globalPagesSetup.js";
 
 const BROWSER_TYPE = "chrome"; // Default browser type
-const WIDTH = 1920; // Default screen width
-const HEIGHT = 1080; // Default screen height
+const WIDTH = 1700; // 1920;// Default screen width  3024 × 1964
+const HEIGHT = 950; // 1080; // Default screen height
 const DEFAULT_TIMEOUT = 30000; // default timeout in milliseconds
 
 const browserSetup = {
   headless: false,
-  //slowMo: 1000,
+  slowMo: 1000,
 };
 
 /**

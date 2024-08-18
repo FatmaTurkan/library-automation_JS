@@ -43,3 +43,18 @@ Then("user login succussfully to the homepage", async function () {
   
   // await BrowserUtility.sleep(2);
 });
+
+When('user enters invalid email address {string} in the Email address field', async function (string) {
+  await PageManager.loginPage.enterUsername(string);
+});
+
+When('user enters invalid password {string} in the Password field', async function (string) {
+  await PageManager.loginPage.enterPassword(string);
+});
+
+Then('user sees a {string} error pop-up message', async function (string) {
+  await expect(PageManager.loginPage.loginErrorMessage).toHaveText(string);
+  //await BrowserUtility.verifyMessages(string, PageManager.loginPage.loginErrorMessage.innerText());
+  //this verification above based on a custom function but there is no need for it, 
+  //   as PW has built in expect methods
+});

@@ -1,0 +1,6 @@
+1. In login.feature file/ row 58
+--On the login page when the user enters a valid email and clicks on Sign in button without 
+  entering any password, then what is the expectation in that case?  
+
+ 2. In bookCategories feature file I think we should not hardcode the book categories. But not sure how to handle in cucumber
+ --row 16  
