@@ -1,24 +1,25 @@
 @lib-02
 Feature: Logout from the application
 
-    As a user, I should be able to logout from the app.
+  As a user, I should be able to logout from the app.
 
-    #* AC1: user should log out from the homepage by clicking the “Log out”  button under the account name.
+  #* AC1: user should log out from the homepage by clicking the “Log out”  button under the account name.
+  Background:
+    Given user is already on the login page
 
-
-    # TODO: verify users can logout from the app
-    Scenario Outline: Veriy users can logout from the app
-      Given I am logged in as <user_type>
-      When I click the dropdown( triangle) icon next to the account name
-      And I click the "Log out" button
-      Then I should be logged out from the app
-      And I should be redirected to the login page
-      
-
-      Examples:
-      | user_type |
-      | admin      |
-      | user       |
-
+  # TODO: verify users can logout from the app
+  @lib-02-01
+  Scenario Outline: Veriy users can logout from the app
+    Given the user already logged in as "<user-type>"
+    When user clicks the user profile on top right corner of the page
+    And user clicks the logout button
+    Then user should be logged out from the app
     
-    #? Should there be more scenarios for this user story? Feel free to add more scenarios.
+
+    Examples:
+      | user-type |
+      | admin     |
+      | student   |
+
+
+#? Should there be more scenarios for this user story? Feel free to add more scenarios.
